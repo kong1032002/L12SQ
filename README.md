@@ -1,2 +1,0 @@
-# L12SQ
-Game 2D L12SQ
