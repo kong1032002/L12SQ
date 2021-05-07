@@ -12,11 +12,9 @@ public:
 	Draw();
 	~Draw();
 
-	void logSDLError(std::ostream& os, const std::string& msg, bool fatal = false);
-	void initSDL(SDL_Window*& window, SDL_Renderer*& ren);
-	void quitSDL(SDL_Window* window, SDL_Renderer* ren);
-
 	SDL_Texture* loadTexture(const std::string& file, SDL_Renderer* ren);
+	void logSDLError(std::ostream& os, const std::string& msg, bool fatal = false);
+	void quitSDL(SDL_Window* window, SDL_Renderer* ren);
 	void renderTexture(SDL_Texture* tex, SDL_Renderer* ren, int x, int y, int w, int h);
 	void renderBar(SDL_Texture* tex, SDL_Renderer* ren, int x, int y, int w, int h, int lengthpercent);
 	void refreshScreen(SDL_Window* window, SDL_Renderer* ren, const SDL_Rect& filled_rect);
@@ -29,21 +27,35 @@ public:
 
 protected:
 	Game gplay;
-	const int SCREEN_WIDTH = 480;
-	const int SCREEN_HEIGHT = 640;
-	const int step = SCREEN_WIDTH / gplay.BFSize;
+	const int BarW = 180;
+	const int BarH = 45;
+	const int EleSize = 70;
+	const int SCREEN_WIDTH = 600;
+	const int SCREEN_HEIGHT = 800;
+	const int step = 480 / gplay.BFSize;
 	const string WINDOW_TITLE = "Loan 12 su quan";
 	Player P[3], COM;
-	TTF_Font* font = NULL;
-	SDL_Color fg;
 	string text;
 	Position Pos;
 	int playerTurn;
 
+	TTF_Font* font = NULL;
+	SDL_Color fg;
+
 	SDL_Renderer* renderer;
 	SDL_Window* window;
 	SDL_Rect filled_rect;
+	
+	SDL_Texture* Turn;
+	SDL_Surface* Text;
 
+	SDL_Texture* Number[10];
+	SDL_Texture* EleFire;
+	SDL_Texture* EleWater;
+	SDL_Texture* EleWind;
+	SDL_Texture* EleEarth;
+
+	SDL_Texture* Lightning;
 	SDL_Texture* P1Win;
 	SDL_Texture* P2Win;
 	SDL_Texture* Xsword;
@@ -57,14 +69,21 @@ protected:
 	SDL_Texture* background;
 	SDL_Texture* TargetSelected;
 	SDL_Texture* Target;
+
+	SDL_Texture* Icon;
 	SDL_Texture* RedSword;
 	SDL_Texture* Sword;
 	SDL_Texture* Heart;
 	SDL_Texture* Mana;
 	SDL_Texture* EXPScroll;
 	SDL_Texture* Gold;
-	SDL_Texture* EmptyBar;
 	SDL_Texture* Food;
+
+	SDL_Texture* EEXP;
+	SDL_Texture* EHP;
+	SDL_Texture* EMP;
+	SDL_Texture* EFood;
+	SDL_Texture* EXPBar;
 	SDL_Texture* HPBar;
 	SDL_Texture* MPBar;
 	SDL_Texture* FoodBar;

@@ -4,6 +4,7 @@
 #include "Variable.h"
 #include "Draw.h"
 #include "Game.h"
+#include "Skill.h"
 
 Draw Paint;
 

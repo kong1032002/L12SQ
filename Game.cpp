@@ -28,16 +28,11 @@ Game::Game()
 					swap(BF[k - 1][j], BF[k][j]);
 			}
 	}
-	for (int i = 0;i < BFSize;i++)
-	{
-		for (int j = 0;j < BFSize;j++)
-			cout << BF[i][j] << " ";
-		cout << endl;
-	}
 }
 
 Game::~Game()
 {
+	Turn = 1;
 }
 
 int Game::random()

@@ -5,7 +5,9 @@ Player::Player()
 	HP = MAXHP;
 	MP = MAXMP;
 	Food = MAXFood;
-	ATK = 100;
+	EXP = 0;
+	ATK = 7;
+	Level = 1;
 }
 
 Player::~Player()
@@ -13,22 +15,24 @@ Player::~Player()
 	HP = MAXHP;
 	MP = MAXMP;
 	Food = MAXFood;
-	ATK = 100;
+	ATK = 7;
+	EXP = 0;
+	Level = 1;
 }
 
-void Player::Eat(int amount)
+void Player::Eat()
 {
-	Food = max(Food - amount * 10, 0);
+	Food = max(Food - 1, 0);
 }
 
 void Player::GatherFood(int amount)
 {
-	Food = min(Food + amount * 10, MAXFood);
+	Food = min(Food + amount * 5, MAXFood);
 }
 
 void Player::Healing(int amount)
 {
-	HP = min(HP + amount * ATK, MAXHP);
+	HP = min(HP + amount * 5, MAXHP);
 }
 
 void Player::TakeDMG(int amount)
@@ -38,5 +42,16 @@ void Player::TakeDMG(int amount)
 
 void Player::ManaRecovery(int amount)
 {
-	MP = min(MP + amount * 10, MAXMP);
+	MP = min(MP + amount * 5, MAXMP);
+}
+
+void Player::GetExp(int amount)
+{
+	EXP += amount;
+	if (EXP >= MAXEXP)
+	{
+		Level++;
+		ATK += 2;
+		EXP -= MAXEXP;
+	}
 }
