@@ -368,6 +368,7 @@ void Draw::refreshScreen(SDL_Window* window, SDL_Renderer* ren, const SDL_Rect& 
     renderBar(HPBar, ren, SCREEN_WIDTH - EleSize - BarW + 45, step * gplay.BFSize + BarH / 4, BarW - 60, BarH / 2, P[2].HP * 1000 / P[2].MAXHP);
     renderBar(MPBar, ren, SCREEN_WIDTH - EleSize - BarW + 45, step * gplay.BFSize + BarH * 5 / 4, BarW - 60, BarH / 2, P[2].MP * 1000 / P[2].MAXMP);
     renderBar(FoodBar, ren, SCREEN_WIDTH - EleSize - BarW + 45, step * gplay.BFSize + BarH * 9 / 4, BarW - 60, BarH / 2, P[2].Food * 1000 / P[2].MAXFood);
+    renderBar(EXPBar, ren, SCREEN_WIDTH - EleSize - BarW + 45, step * gplay.BFSize + BarH * 13 / 4, BarW - 60, BarH / 2, P[2].EXP * 1000 / P[2].MAXEXP);
 
     if (Pos.saved == 1)
         renderTexture(TargetSelected, ren, Pos.x * step + (SCREEN_WIDTH - size * step) / 2, Pos.y * step, step , step );
